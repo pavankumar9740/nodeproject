@@ -3,8 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
-  },
+    "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
+    "serve:ssr": "node dist/server",
+    "build:client-and-server-bundles": "ng build --prod && ng run angular.io-example:server",
+     "webpack:server": "webpack --config webpack.server.config.js --progress --colors"
+    },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
